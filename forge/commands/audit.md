@@ -13,7 +13,8 @@ Cible éventuelle (sinon, tout le projet) : $ARGUMENTS
    - **À signaler** : règle nulle, contradictoire, contre-productive ou dangereuse. Dis pourquoi en clair ("j'ai trouvé ça dans tes règles mais ça pose problème parce que...").
    - **Manquant** : garde-fou ou bonne pratique absente qui aiderait ce projet précis.
 3. Détecte le niveau de l'utilisateur et adapte le vocabulaire.
-4. Présente une synthèse : ce qui est bien, ce qui cloche (avec la raison), ce qu'on pourrait ajouter.
+4. **Conflits avec Forge.** Compare les règles du projet à celles de Forge (voir `PRINCIPES.md`) et présente un tableau : règle du projet | règle de Forge | gagnant. **Le projet gagne toujours** ; tu signales, tu ne résous pas. Cherche en particulier : langue et style d'écriture ; autonomie demandée ("ne demande jamais") contre la règle pivot ; polices, couleurs et design system ; interdiction de sous-agents ou d'outils ; autre plugin qui injecte des règles au démarrage (par exemple Superpowers), dont le "toujours brainstormer d'abord" peut contredire l'autonomie de `/forge:go` ; hooks de projet qui bloquent des actions que Forge propose.
+5. Présente une synthèse : ce qui est bien, ce qui cloche (avec la raison), les conflits, ce qu'on pourrait ajouter.
 
 ## Règles dures
 - **Tu n'écrases ni ne supprimes rien.** Tu montres et tu proposes. Toute modif passe par un oui/non explicite.

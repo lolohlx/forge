@@ -3,14 +3,14 @@
   "owner": { "name": "Leo Hallak" },
   "metadata": {
     "description": "Forge - le collaborateur IA qui te mène de l'idée au produit vendable.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "forge",
       "source": "./forge",
       "description": "Collaborateur Claude Code adaptatif : cadre, code, sécurise, met en conformité RGPD et rend ton produit vendable. Deux équipes d'agents (planif + QA), un agent de veille et d'innovation, recherche web continue, garde-fous anti-action-aveugle.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "workflow"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "name": "forge",
-  "version": "0.1.0",
-  "description": "Collaborateur Claude Code adaptatif qui te mène de l'idée au produit vendable. Cadre, code, sécurise, met en conformité RGPD. Deux équipes d'agents (planif et QA), un agent de veille et d'innovation, recherche web continue, garde-fous anti-action-aveugle.",
+  "version": "0.2.0",
+  "description": "Collaborateur Claude Code adaptatif qui te mène de l'idée au produit vendable. Pour l'indépendant qui se lance comme pour l'expert de son métier qui construit son propre logiciel (B2B ou B2C) : une équipe d'experts sourcés dont tu restes le patron, un pré-mortem avant le lancement, reprise d'un projet existant sans rien casser.",
   "author": { "name": "Leo Hallak" },
-  "keywords": ["workflow", "rgpd", "security", "qa", "product", "innovation", "france"]
+  "keywords": ["workflow", "rgpd", "security", "qa", "product", "pricing", "premortem", "b2b", "b2c", "france"]
 }

@@ -1,0 +1,25 @@
+name: hook-sessionstart
+# Prouve la commande du hook (pas Claude Code lui-même) sous Linux, macOS et Windows
+# (Git Bash, PowerShell 5.1, PowerShell 7). Le plafond de taille est testé au passage.
+on:
+  push:
+  pull_request:
+
+jobs:
+  hook:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, shell: bash }
+          - { os: macos-latest, shell: bash }
+          - { os: windows-latest, shell: bash }
+          - { os: windows-latest, shell: powershell }
+          - { os: windows-latest, shell: pwsh }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node tests/test-hook.mjs ${{ matrix.shell }}

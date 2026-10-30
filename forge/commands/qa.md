@@ -14,7 +14,8 @@ Contexte / focus éventuel : $ARGUMENTS
    - **forge-qa-rgpd** : conformité données perso (par défaut si FR), consentement, mentions, hébergement.
    - **forge-qa-ux** : audit landing/UX anti-slop + Core Web Vitals, parcours cliquable.
    - **forge-qa-vendabilite** : verdict final, preuve de besoin, pricing, acquisition, frictions de vente.
-3. Consolide en un **rapport de pre-ship** : ce qui bloque le ship (rouge), ce qui est à corriger ensuite (orange), ce qui est OK (vert). Verdict global : peut-on shipper et vendre, oui ou non.
+3. Si le ship est tourné vers l'extérieur (publication, vente, vrais clients), lance aussi le **pré-mortem** et l'**équipe rouge** du skill `forge-equipe` (§5) : elles ne bloquent jamais, mais le rapport dit si elles ont été faites. En B2C, rappelle que message, prix et leviers non testés auprès de vraies personnes restent des hypothèses.
+4. Consolide en un **rapport de pre-ship** : ce qui bloque le ship (rouge), ce qui est à corriger ensuite (orange), ce qui est OK (vert). Verdict global : peut-on shipper et vendre, oui ou non.
 
 ## Règles
 - Honnête, pas complaisant. Pas de "c'est bon" sans preuve.
