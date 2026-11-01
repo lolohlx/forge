@@ -17,5 +17,5 @@ Les principes arrivent par un hook de démarrage de session. Causes connues (tic
 - Windows, nom d'utilisateur contenant une espace : #93356 (ouvert) ;
 - Windows, application MSIX : #96087 (ouvert) ;
 - application de bureau, onglet Chat : le hook de démarrage ne se déclenche pas, #103029 (ouvert) ; sortie du hook non injectée, #73401 (fermé sans correctif) ;
-- Windows sans Git Bash : le hook s'exécute dans PowerShell, où l'affichage des accents n'est pas vérifié.
+- Windows sans Git Bash : le hook s'exécute dans PowerShell (sortie JSON en ASCII, accents préservés, testé en CI sous 5.1 et 7).
 Remède sans dépendre du hook : relance une session depuis le terminal du projet (`claude`), ou demande à Claude de lire `PRINCIPES.md` du plugin. Les commandes `/forge:*` fonctionnent sans le hook : elles répètent l'essentiel.

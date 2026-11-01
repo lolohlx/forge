@@ -62,7 +62,9 @@ Les skills d'appui ne sont **pas** des dépendances : s'ils manquent, l'expert a
 - **`/forge:doctor`** : vérifie que Forge est bien chargé et aide à dépanner.
 
 ## Windows
-Le hook de démarrage utilise `cat` sans script `.sh`, la forme la plus sûre selon les tickets connus. Plusieurs problèmes de Claude Code lui-même subsistent sous Windows (nom d'utilisateur avec espace, application MSIX, onglet Chat de l'application de bureau) : `/forge:doctor` les liste. Le dépôt contient un test (`tests/test-hook.mjs`) et un workflow GitHub Actions qui vérifient la commande du hook sous Git Bash, PowerShell 5.1 et PowerShell 7 ; ils prouvent la commande, pas Claude Code. Non vérifié : l'affichage des accents sous PowerShell 5.1 avant le premier passage du workflow.
+Le hook de démarrage lit `forge/hooks/principes.json` avec `cat`, sans script `.sh` (la forme la plus sûre selon les tickets connus). Ce fichier est du JSON en ASCII pur, généré depuis `PRINCIPES.md` : un premier essai avec `cat` sur le fichier texte avait **abîmé les accents sous Windows PowerShell 5.1**, ce que le workflow GitHub Actions a détecté. Le workflow vérifie maintenant la commande du hook sous Git Bash, PowerShell 5.1 et PowerShell 7 ; il prouve la commande, pas Claude Code. Plusieurs problèmes de Claude Code lui-même subsistent sous Windows (nom d'utilisateur avec espace, application MSIX, onglet Chat de l'application de bureau) : `/forge:doctor` les liste.
+
+**Modifier les principes** : éditer `forge/PRINCIPES.md`, puis `node scripts/build-hook.mjs` (le test échoue si `principes.json` est périmé).
 
 ## Structure
 
@@ -70,12 +72,14 @@ Le hook de démarrage utilise `cat` sans script `.sh`, la forme la plus sûre se
 forge/
   .claude-plugin/plugin.json
   PRINCIPES.md          # la constitution (courte), injectée à chaque session
-  hooks/hooks.json      # SessionStart -> injecte PRINCIPES.md
+  hooks/hooks.json      # SessionStart -> injecte principes.json
+  hooks/principes.json  # PRINCIPES.md en JSON ASCII (généré, voir scripts/build-hook.mjs)
   agents/               # 17 experts (6 PLANIF, 6 nouveaux, 5 QA)
   commands/             # go, plan, qa, import, audit, doctor
   skills/forge-equipe/  # routage, format de rendu, pré-mortem (détail chargé à la demande)
   skills/forge-onboarding/
-tests/test-hook.mjs     # taille de PRINCIPES + commande du hook
+tests/test-hook.mjs     # taille de PRINCIPES + commande du hook dans chaque shell
+scripts/build-hook.mjs  # génère principes.json
 ```
 
 ## Philosophie

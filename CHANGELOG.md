@@ -14,14 +14,14 @@ Nouveau profil : l'expert de son métier qui construit son propre logiciel (B2B 
 
 ### Modifié
 - `PRINCIPES.md` : règle "les règles du projet priment", profil, équipe d'experts, marqueur de version, vente adaptée à la cible. Moins de 4 500 caractères (plafond de Claude Code : 10 000).
-- Hook SessionStart : ajout de `compact` (les principes sont réinjectés après une compaction).
+- Hook SessionStart : ajout de `compact` (les principes sont réinjectés après une compaction). Il lit `hooks/principes.json` (JSON ASCII généré par `scripts/build-hook.mjs`) : le test sous Windows PowerShell 5.1 a montré que `cat` sur le fichier UTF-8 abîmait les accents.
 - `forge-product` recentré (le marché va à `forge-marche`, le prix à `forge-offre`) ; `forge-critique` : accord de façade interdit, chef du pré-mortem ; `forge-securite`, `forge-architecte` : format de rendu fixe. `forge-qa-ux` : le design system du projet prime sur ses goûts par défaut.
 - `/forge:plan`, `/forge:go`, `/forge:qa`, `/forge:audit` (tableau des conflits), skill d'onboarding (installation guidée des skills d'appui, portée `local` recommandée).
 - Conventions de style (tiret cadratin) : défauts, plus des règles dures.
 
 ### Non vérifié
 - Priorité réelle entre CLAUDE.md et contexte du hook : la doc ne la définit pas ; la règle est instruite et testée sur un projet fictif.
-- Accents sous PowerShell 5.1 ; application de bureau Windows.
+- Application de bureau Windows et injection réelle du contexte dans Claude Code sous Windows (la commande du hook est prouvée par le workflow, pas Claude Code lui-même).
 
 ## 0.1.0
 Première version : principes, 11 agents (PLANIF et QA), commandes go, plan, qa, audit, onboarding.
