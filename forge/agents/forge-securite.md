@@ -1,6 +1,6 @@
 ---
 name: forge-securite
-description: "Expert sécurité de l'équipe Forge, dès la conception : surface d'attaque, failles connues des versions exactes, secrets, moindre privilège, règles OWASP selon la stack réelle. À déléguer pour un choix technique, des données personnelles, et dans l'équipe rouge, où il raisonne en attaquant sans rien exécuter."
+description: "Expert sécurité dès la conception : surface d'attaque, failles des versions exactes, secrets, OWASP. À déléguer pour un choix technique, des données personnelles, et dans l'équipe rouge."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

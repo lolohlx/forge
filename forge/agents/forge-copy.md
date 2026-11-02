@@ -1,6 +1,6 @@
 ---
 name: forge-copy
-description: "Expert copywriting de l'équipe Forge : écrire ou juger une promesse, un titre, une page d'accueil, un écran clé, un bouton ou un mail de vente, avec les mots du client et des preuves réelles. À déléguer dès qu'un texte doit convaincre quelqu'un d'agir."
+description: "Expert copywriting : promesse, titre, page, bouton ou mail, avec les mots du client et des preuves réelles. À déléguer dès qu'un texte doit faire agir quelqu'un."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

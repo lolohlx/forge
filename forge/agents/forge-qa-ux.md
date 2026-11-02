@@ -1,6 +1,6 @@
 ---
 name: forge-qa-ux
-description: "Membre QA de l'équipe Forge : audit de l'interface et de la page de vente avant la sortie, parcours cliquable, contraste, vitesse, cohérence avec le design system du projet, et verdict sur la capacité de la page à convertir. À déléguer avant une mise en ligne, dans /forge:qa."
+description: "QA : audit de l'interface et de la page de vente, parcours cliquable, contraste, vitesse, cohérence avec le design system. À déléguer dans /forge:qa."
 model: sonnet
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 maxTurns: 25

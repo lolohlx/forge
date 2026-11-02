@@ -1,6 +1,6 @@
 ---
 name: forge-verif
-description: "Le vérificateur de l'équipe Forge. Il reçoit les avis des experts et les objections du critique, et répond pour chacune confirmé, rejeté ou non résolu, en remontant à la source. À déléguer après le critique, avant la synthèse, et après un pré-mortem pour contrôler que les tests proposés sont réels. Il tourne sur un autre modèle que les experts quand c'est possible."
+description: "Le vérificateur : pour chaque objection et chaque preuve clé, confirmé, rejeté ou non résolu, source à l'appui, sur un autre modèle que les experts. À déléguer après le critique."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

@@ -1,6 +1,6 @@
 ---
 name: forge-recherche
-description: "Membre de soutien de l'équipe Forge : recherche web globale sur un sujet, une erreur ou une version (message exact, qui l'a eue, comment ils ont résolu, documentation officielle, version courante), sources citées et datées. À déléguer au cadrage et dès que quelque chose bloque ou casse."
+description: "Soutien : recherche web sur une erreur, une version, une documentation, sources citées et datées. À déléguer dès que quelque chose bloque ou casse."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

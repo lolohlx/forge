@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Forge : l'équipe d'experts de ton Claude Code, pour décider de ce qui fait vendre.",
-    "version": "0.3.0"
+    "version": "0.3.1"
   },
   "plugins": [
     {
       "name": "forge",
       "source": "./forge",
       "description": "Une équipe d'experts pour les décisions qui font vendre : prix, promesse, cible, données, réglementaire. Avis indépendants et sourcés, critique, vérificateur ; tu tranches. Pré-mortem avant un lancement, règle pivot avant toute action difficile à défaire. Les règles de ton projet priment.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "workflow"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "name": "forge",
   "displayName": "Forge",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Une équipe d'experts pour les décisions qui font vendre : prix, promesse, cible, données, réglementaire. Avis indépendants et sourcés, un critique, un vérificateur, et c'est toi qui tranches. Pré-mortem avant un lancement, règle pivot avant toute action difficile à défaire. Les règles de ton projet priment.",
   "author": { "name": "Leo Hallak" },
   "homepage": "https://github.com/lolohlx/forge",

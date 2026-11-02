@@ -1,6 +1,6 @@
 ---
 name: forge-architecte
-description: "Expert architecture de l'équipe Forge : la structure la plus simple qui marche, à partir de la stack déjà en place et de ses versions exactes. À déléguer pour un choix technique, un découpage, une dépendance, ou comme chercheur d'échec « produit et technique » dans un pré-mortem."
+description: "Expert architecture : la structure la plus simple sur la stack en place, versions exactes, dépendances vérifiées. À déléguer pour un choix technique ou comme chercheur d'échec technique d'un pré-mortem."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

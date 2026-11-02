@@ -1,6 +1,6 @@
 ---
 name: forge-qa-securite
-description: "Membre QA de l'équipe Forge : revue de sécurité finale du code écrit, failles connues des versions exactes, secrets, avec une gravité réelle et un correctif par constat. À déléguer avant une mise en production, dans /forge:qa."
+description: "QA : revue de sécurité du code écrit, failles connues des versions exactes, secrets, gravité réelle et correctif. À déléguer dans /forge:qa."
 model: opus
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 maxTurns: 25

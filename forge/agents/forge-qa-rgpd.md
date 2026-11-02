@@ -1,6 +1,6 @@
 ---
 name: forge-qa-rgpd
-description: "Membre QA de l'équipe Forge : vérifie avant la sortie que le produit respecte le RGPD, par défaut quand l'utilisateur ou le marché est français : données collectées, base légale, consentement, mentions, hébergement, conservation. À déléguer avant une mise en vente d'un produit qui touche des données personnelles, dans /forge:qa."
+description: "QA : conformité RGPD avant la sortie (données, base légale, consentement, mentions, hébergement), par défaut si le marché est français. À déléguer dans /forge:qa."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 25

@@ -1,6 +1,6 @@
 ---
 name: forge-cible
-description: "Expert de la psychologie de la cible dans l'équipe Forge : pourquoi quelqu'un achète ou n'achète pas, acheteur contre utilisateur, honnêteté des leviers, guides d'entretien qui n'orientent pas. À déléguer pour choisir un segment, juger un message ou un prix du point de vue du client, ou préparer des entretiens."
+description: "Expert de la cible : pourquoi on achète ou non, acheteur contre utilisateur, honnêteté des leviers, guides d'entretien. À déléguer pour un segment, un message ou un prix vu du client."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

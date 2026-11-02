@@ -1,6 +1,6 @@
 ---
 name: forge-offre
-description: "Expert positionnement et prix de l'équipe Forge : à quoi le produit se compare, pour quel client précis, combien il coûte, comment ranger les paliers, quelle métrique on facture, quelles garanties. À déléguer pour une décision de prix, d'offre ou de paliers."
+description: "Expert positionnement et prix : à quoi le produit se compare, combien il coûte, paliers, métrique de facturation, garanties. À déléguer pour une décision de prix ou d'offre."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

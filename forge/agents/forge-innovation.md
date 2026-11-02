@@ -1,6 +1,6 @@
 ---
 name: forge-innovation
-description: "Membre de soutien de l'équipe Forge : veille sur ce qui se fait maintenant dans le domaine du projet, liens entre l'idée de l'utilisateur et ce qui existe de mieux, trois à cinq pistes concrètes avec leur maturité et leur source. À déléguer au cadrage et quand un projet a besoin d'un angle neuf."
+description: "Soutien : veille sur ce qui se fait maintenant dans le domaine, trois à cinq pistes concrètes avec maturité et source. À déléguer quand un projet a besoin d'un angle neuf."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

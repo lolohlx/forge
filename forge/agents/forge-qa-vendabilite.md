@@ -1,6 +1,6 @@
 ---
 name: forge-qa-vendabilite
-description: "Membre QA de l'équipe Forge : le verdict final « vendable » ou « pas encore », sur preuves : besoin démontré, prix tenable, premier canal activé, parcours d'achat complet, frictions. À déléguer juste avant la mise en vente, dans /forge:qa, et dans l'équipe rouge où il joue le prospect hostile."
+description: "QA : verdict « vendable » ou « pas encore », sur preuves : besoin, prix, canal, parcours d'achat, frictions. Prospect hostile en équipe rouge. À déléguer dans /forge:qa."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 25

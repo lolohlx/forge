@@ -1,6 +1,6 @@
 ---
 name: forge-reglementaire
-description: "Expert du réglementaire sectoriel et des données personnelles dans l'équipe Forge, à la conception : régulateur, obligations de l'activité, données sensibles ou de tiers, rôles, mentions, leviers de vente encadrés. À déléguer quand le produit touche un secteur encadré (finance, assurance, santé, immobilier, éducation) ou des données personnelles, et comme chercheur d'échec « conformité et exécution » dans un pré-mortem. La vérification finale reste à forge-qa-rgpd."
+description: "Expert du réglementaire sectoriel et des données personnelles, à la conception : régulateur, données de tiers, rôles, mentions. À déléguer pour un secteur encadré ou des données sensibles."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 (02/11/2026)
+
+### Changé
+- Descriptions des 18 experts raccourcies : le contexte permanent du plugin passe d'environ 3 700 à moins de 3 000 tokens (mesure `claude plugin details`).
+- `/forge:doctor` sait que `go`, `qa` et `import` n'apparaissent pas dans la liste des skills du modèle (déclenchement manuel seul) et le dit au lieu de les chercher. Constat du test d'installation 0.3.0.
+
 ## 0.3.0 (02/11/2026)
 
 Forge vit dans l'environnement au lieu de s'imposer à chaque session. Conçu à partir de trois recherches du 02/11/2026 (doc officielle Claude Code, plugins de référence, recherche sur les systèmes multi-agents) et de deux essais réels sur Claude Code 2.1.309.

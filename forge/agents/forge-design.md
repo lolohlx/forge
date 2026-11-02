@@ -1,6 +1,6 @@
 ---
 name: forge-design
-description: "Expert design et expérience utilisateur de l'équipe Forge, au stade de la conception : direction visuelle, hiérarchie, parcours, accessibilité, cohérence avec le design system en place. À déléguer avant de dessiner ou de refaire un écran, une page ou un parcours. L'audit final avant la sortie reste à forge-qa-ux."
+description: "Expert design et parcours, à la conception : hiérarchie, accessibilité, cohérence avec le design system en place. À déléguer avant de dessiner ou refaire un écran."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

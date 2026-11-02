@@ -1,6 +1,6 @@
 ---
 name: forge-qa-e2e
-description: "Membre QA de l'équipe Forge : il identifie le parcours critique, écrit et exécute les tests de bout en bout avec l'outil de la stack, et dit si le parcours est prouvé. À déléguer avant une mise en production ou une mise en vente, dans /forge:qa."
+description: "QA : identifie le parcours critique, écrit et exécute les tests de bout en bout, dit si le parcours est prouvé. À déléguer dans /forge:qa."
 model: sonnet
 tools: Read, Grep, Glob, Bash, Write, Edit, WebSearch, WebFetch
 maxTurns: 25

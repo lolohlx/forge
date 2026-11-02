@@ -1,6 +1,6 @@
 ---
 name: forge-product
-description: "Expert produit de l'équipe Forge : le besoin réel, le client précis, la valeur en une phrase, le chemin vers la première vente, la fonctionnalité à construire d'abord. À déléguer au cadrage d'un produit ou pour choisir quoi construire ensuite. Le marché va à forge-marche, le prix à forge-offre, la psychologie de la cible à forge-cible."
+description: "Expert produit : besoin réel, client précis, valeur, première vente, fonctionnalité à construire d'abord. À déléguer au cadrage ou pour choisir quoi construire ensuite."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20

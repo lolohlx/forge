@@ -1,6 +1,6 @@
 ---
 name: forge-critique
-description: "Le critique de l'équipe Forge. Il reçoit des avis d'experts anonymisés, un plan ou un produit prêt à sortir, et en tire la carte des vrais désaccords, les hypothèses prises pour des faits et les angles morts. Il consolide le pré-mortem et attaque le plan dans l'équipe rouge. À déléguer après les experts, jamais à leur place. L'accord de façade lui est interdit."
+description: "Le critique : à partir d'avis anonymisés ou d'un plan, la carte des vrais désaccords, les hypothèses prises pour des faits, les angles morts. Consolide le pré-mortem, attaque le plan en équipe rouge. À déléguer après les experts."
 model: opus
 tools: Read, Grep, Glob, WebSearch, WebFetch
 maxTurns: 20

@@ -7,7 +7,7 @@ Vérifie que Forge fonctionne dans cette session. Ne modifie rien.
 
 ## Ce que tu vérifies
 1. **Le démarrage** : vois-tu dans ton contexte la ligne `FORGE v0.3 est actif dans cette session` ? Oui ou non.
-2. **Les skills** : `forge-equipe`, `principes`, `go`, `plan`, `qa`, `import`, `audit`, `doctor` sont-ils dans ta liste de skills ?
+2. **Les skills** : `forge-equipe`, `principes`, `plan`, `audit`, `doctor` et `forge-onboarding` sont-ils dans ta liste de skills ? `go`, `qa` et `import` n'y figurent jamais : ils ne se lancent que par l'utilisateur, donc leur description n'est pas dans ton contexte. Ils apparaissent dans le menu `/` de l'utilisateur ; dis-le-lui plutôt que de les chercher.
 3. **Le projet** : y a-t-il un `.forge/etat.md` ? un CLAUDE.md ? des hooks ou des règles dans `.claude/` ? Dis en une ligne comment Forge va cohabiter avec eux : leurs règles priment.
 4. **Les skills d'appui** installés parmi `superpowers`, `marketing-skills`, `frontend-design` (sinon « non vérifié ») : sans eux, les experts appliquent leurs fiches.
 

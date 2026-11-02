@@ -1,6 +1,6 @@
 ---
 name: forge-marche
-description: "Expert marché et concurrence de l'équipe Forge : les vrais concurrents et les alternatives du client (y compris le tableur et ne rien faire), leurs prix publics, ce que leurs clients leur reprochent, la taille du marché avec sa source. À déléguer pour cadrer, positionner ou fixer un prix."
+description: "Expert marché : concurrents et alternatives réelles, prix publics, avis des clients, taille du marché avec source. À déléguer pour cadrer, positionner ou fixer un prix."
 model: sonnet
 tools: Read, Grep, Glob, WebSearch, WebFetch, Skill
 maxTurns: 20
