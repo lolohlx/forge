@@ -1,6 +1,6 @@
-// Vérifie que la commande du hook SessionStart restitue PRINCIPES.md intact dans un shell
-// donné (accents compris), que principes.json est à jour, et que le texte respecte le
-// plafond de 10 000 caractères de la doc Claude Code (marge de sécurité : 8 000).
+// Vérifie que la commande du hook SessionStart restitue forge/hooks/demarrage.md intact dans
+// un shell donné (accents compris), que principes.json est à jour, et que le contexte de
+// démarrage reste court (moins de 1 500 caractères : il est lu à chaque session).
 // Usage : node tests/test-hook.mjs <bash|powershell|pwsh>
 import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -18,15 +18,15 @@ if (!shells[name]) {
 }
 
 const root = resolve(import.meta.dirname, '..');
-const expected = readFileSync(resolve(root, 'forge/PRINCIPES.md'), 'utf8').replace(/\r\n/g, '\n');
+const expected = readFileSync(resolve(root, 'forge/hooks/demarrage.md'), 'utf8').replace(/\r\n/g, '\n');
 let failed = false;
 const check = (ok, label) => {
   console.log(`${ok ? 'OK  ' : 'FAIL'} ${label}`);
   if (!ok) failed = true;
 };
 
-check([...expected].length < 8000, `taille ${[...expected].length} caractères (< 8000)`);
-check(expected.includes('FORGE-PRINCIPES v'), 'marqueur de version présent');
+check([...expected].length < 1500, `taille ${[...expected].length} caractères (< 1500)`);
+check(expected.includes('FORGE v0.3'), 'marqueur de version présent');
 check(spawnSync('node', ['scripts/build-hook.mjs', '--check'], { cwd: root }).status === 0, 'principes.json à jour');
 
 // La commande lue dans hooks.json, avec ${CLAUDE_PLUGIN_ROOT} remplacé comme le fait Claude Code

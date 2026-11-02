@@ -1,6 +1,7 @@
 name: hook-sessionstart
-# Prouve la commande du hook (pas Claude Code lui-même) sous Linux, macOS et Windows
-# (Git Bash, PowerShell 5.1, PowerShell 7). Le plafond de taille est testé au passage.
+# Prouve les deux hooks (pas Claude Code lui-même) sous Linux, macOS et Windows
+# (Git Bash, PowerShell 5.1, PowerShell 7) : le démarrage (principes intacts, plafond de
+# taille) et la règle pivot (garde-pivot.mjs, forme exec node). Puis valide le manifeste.
 on:
   push:
   pull_request:
@@ -23,3 +24,6 @@ jobs:
         with:
           node-version: 22
       - run: node tests/test-hook.mjs ${{ matrix.shell }}
+      - run: node tests/test-garde-pivot.mjs
+      - run: npx --yes @anthropic-ai/claude-code@latest plugin validate ./forge --strict
+        if: matrix.os == 'ubuntu-latest'

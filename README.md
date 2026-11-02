@@ -1,89 +1,101 @@
 # Forge
 
-**Le collaborateur Claude Code qui te mène de l'idée au produit vendable.**
+**L'équipe d'experts de ton Claude Code, pour décider de ce qui fait vendre.**
 
-Forge n'est pas un parcours de dev rigide. C'est un collaborateur adaptatif qui s'assure que tout se passe bien sur **tous les angles** à la fois : cadrage produit, architecture, sécurité, RGPD, qualité, UX et mise en vente. Il se base sur ta stack réelle, détecte ton niveau, ne casse jamais ta config existante, et ne te fait jamais cliquer "oui" sur une action que tu ne comprends pas.
-
-L'objectif est toujours le même : un produit **vendable**, avec de vraies preuves que ça marche et que ça répond à un vrai besoin. Pour le marché français par défaut.
+Avec Claude Code, le code avance vite. Les décisions qui font vendre, elles, restent dans ta tête : quel prix, quelle promesse, qui viser en premier, quelle règle s'applique à tes données. Forge les fait passer par une équipe d'experts dont tu es le patron : des avis indépendants et sourcés, un critique, un vérificateur, et c'est toi qui tranches. Pour le marché français par défaut.
 
 ## Pour qui
+- **L'expert de son métier qui construit son propre logiciel**, en B2B dans son secteur ou en B2C, déjà à l'aise avec Claude Code. Forge reprend son projet là où il en est et respecte ses règles.
+- **L'indépendant qui se lance grâce à l'IA** : Forge le mène de l'idée au produit, avec `/forge:go`.
 
-- **L'indépendant qui se lance grâce à l'IA** : Forge le mène de l'idée au produit.
-- **L'expert de son métier qui construit son propre logiciel** (B2B dans son secteur, ou B2C), déjà à l'aise avec Claude Code. Il est le patron, Forge lui fournit une **équipe d'experts**. Au lieu de deviner seul si tel message, tel prix ou tel bouton est le bon, la décision passe par les experts du domaine, qui s'appuient sur des skills reconnus, rendent un avis sourcé dans un format fixe, se contredisent quand il le faut, et **le laissent trancher**. Avant de lancer quoi que ce soit, l'équipe cherche toutes les raisons pour lesquelles ça pourrait échouer. Forge reprend ton projet là où il en est et respecte tes règles.
-
-Forge lit ton projet pour savoir à qui il a affaire (rôle, B2B ou B2C, stade). Ce qui se lit dans le projet ne se demande pas.
-
-**B2B ou B2C, la différence compte.** En B2B tu es souvent ta propre cible et tu peux juger seul (Forge te rappelle que c'est un échantillon de un). En B2C tu n'es pas la cible : message, prix et leviers psychologiques se valident auprès de vraies personnes, et Forge t'en avertit.
+Forge lit le projet pour savoir à qui il a affaire (rôle, B2B ou B2C, stade). **La différence compte** : en B2B tu es souvent ta propre cible et tu peux juger seul (Forge te rappelle que c'est un échantillon de un) ; en B2C tu n'es pas la cible, et un avis sur le message, le prix ou un levier reste une hypothèse jusqu'au test auprès de vraies personnes.
 
 ## Installation
 
+En terminal, depuis le dossier du projet :
+
 ```
-/plugin marketplace add lolohlx/forge
-/plugin install forge@forge
+claude plugin marketplace add lolohlx/forge
+claude plugin install forge@forge --scope local
 ```
 
-Puis redémarre une session. Forge injecte ses principes à chaque session.
+Puis une nouvelle session, et `/forge:doctor`. La portée `local` active Forge dans ce dossier seulement, pour toi, sans rien commiter (`.claude/settings.local.json`). `--scope user` l'active partout ; `--scope project` l'écrit dans `.claude/settings.json`, partagé à l'équipe. Les hooks d'un plugin ne se chargent qu'après que tu as approuvé le dossier. Mise à jour : `claude plugin update forge@forge`.
 
-**Sur un projet existant**, installe-le à la portée du projet : en terminal, `claude plugin install forge@forge --scope local` (réglage personnel, rien n'est commité) ou `--scope project` (écrit `.claude/settings.json`, partagé à l'équipe : regarde le changement avant). Les hooks d'un plugin ne se chargent qu'après que tu as approuvé le dossier. Vérifie que tout est chargé avec `/forge:doctor`.
+Tu peux aussi laisser ton Claude le faire : « Installe le plugin Forge depuis lolohlx/forge, en portée locale, puis dis-moi d'ouvrir une nouvelle session. »
 
-## Ce que tu obtiens
+## Au quotidien
+Tu travailles comme d'habitude. Forge ne se voit pas, sauf quatre lignes au démarrage.
 
-### Comportement permanent
-- **Les règles de ton projet priment** (CLAUDE.md, rules, hooks). Forge signale un conflit, ne l'impose jamais.
-- **Non destructif** : audite, montre, propose. **Règle pivot** : avant toute action irréversible, deux lignes en clair puis oui/non.
-- Recherche web continue, honnêteté (pas de flatterie), RGPD par défaut en France, tests e2e, vendre par défaut.
+1. **Quand une décision de produit se présente** (prix, offre, message, cible, fonctionnalité à construire d'abord, données personnelles, secteur réglementé, lancement), le skill `forge-equipe` se charge seul. Claude annonce les deux ou trois experts qu'il consulte et pourquoi, dont un **dissident désigné**. Ils rendent chacun seul un avis au même format (recommandation, confiance ancrée, preuves citées ou « hypothèse », ce qui les ferait changer d'avis, ce qui manque). Un **critique** cherche les vrais désaccords, un **vérificateur** d'un autre modèle remonte aux sources. Tu reçois une ligne s'ils sont d'accord, un tableau de trois lignes sinon, et tu tranches. La décision se consigne dans `.forge/decisions.md` si tu le veux, avec le signal qui la rouvrirait.
+2. **Avant une action difficile à défaire** (pousser en force ou sur la branche principale, migrer une base, déployer, publier, supprimer, appeler un service qui facture ou envoie), un hook demande en deux lignes : ce que ça fait, le risque. Il demande, il n'interdit jamais : les gardes de ton projet restent maîtres.
+3. **Trois gestes** pour le reste : `/forge:import` une fois par projet existant, `/forge:qa` avant une sortie, `/forge:go` pour déléguer une étape entière.
+4. **Ton CLAUDE.md** : `/forge:doctor` et l'onboarding te proposent cinq lignes à y ajouter, et ne les écrivent jamais sans ton oui. Tes règles priment sur celles de Forge ; en cas de conflit, Claude applique les tiennes et le dit (vérifié : sur une consigne contradictoire, le CLAUDE.md l'emporte six fois sur six).
 
-### L'équipe d'experts (skill `forge-equipe`)
-Pour une décision, **3 experts maximum** (un système multi-agents consomme de l'ordre de 15 fois les tokens d'un chat, selon Anthropic). Chaque expert rend, en 250 mots, dans un format fixe : **avis, preuves sourcées (sinon "hypothèse"), ce qu'il ne sait pas, ce qui lui ferait changer d'avis, recommandation**. Ils ne voient pas les avis des autres. Les vrais désaccords te remontent dans un tableau de 3 lignes avec options et conséquences. Tu tranches.
+## L'équipe
 
-| Expert | Regarde | Skill d'appui (optionnel) |
-|---|---|---|
-| `forge-product` | besoin réel, ICP, valeur, première vente | brainstorming (Superpowers) |
-| `forge-marche` | concurrents, alternatives, avis publics | competitor-profiling, customer-research |
-| `forge-cible` | emploi à accomplir, objections, entretiens sans orienter | customer-research, marketing-psychology |
-| `forge-offre` | positionnement, prix, paliers | pricing, offers, product-marketing |
-| `forge-copy` | promesse, clarté, preuves, appel à l'action | copywriting, copy-editing, cro |
-| `forge-design` | direction visuelle, parcours, design system existant | frontend-design |
-| `forge-architecte` | structure la plus simple sur ta stack | writing-plans (Superpowers) |
-| `forge-securite` | surface d'attaque, CVE des versions exactes | OWASP |
-| `forge-reglementaire` | règles du secteur, données personnelles et de tiers | sources officielles (régulateur, CNIL) |
-| `forge-critique` | avocat du diable, **accord de façade interdit**, pré-mortem | pré-mortem (Gary Klein) |
-| `forge-qa-*` (5) | e2e, sécurité, RGPD, UX, vendabilité avant le ship | verification-before-completion (Superpowers) |
-| `forge-recherche`, `forge-innovation` | soutien, sur demande | |
+| Expert | Regarde | Modèle | Skill d'appui (optionnel) |
+|---|---|---|---|
+| `forge-product` | besoin réel, client précis, valeur, première vente | Opus | brainstorming (Superpowers) |
+| `forge-marche` | concurrents, alternatives, avis publics, taille avec source | Sonnet | competitor-profiling, customer-research |
+| `forge-cible` | pourquoi on achète, acheteur contre utilisateur, entretiens | Sonnet | customer-research, marketing-psychology |
+| `forge-offre` | positionnement, prix, paliers, garanties | Opus | pricing, offers, product-marketing |
+| `forge-copy` | promesse, mots du client, preuves, appel à l'action | Sonnet | copywriting, copy-editing, cro |
+| `forge-design` | direction visuelle, parcours, design system existant | Sonnet | frontend-design |
+| `forge-architecte` | structure la plus simple sur ta stack | Opus | writing-plans (Superpowers) |
+| `forge-securite` | surface d'attaque, failles des versions exactes | Opus | OWASP |
+| `forge-reglementaire` | règles du secteur, données personnelles et de tiers | Opus | sources officielles (régulateur, CNIL) |
+| `forge-critique` | désaccords réels, hypothèses prises pour des faits ; pré-mortem, équipe rouge | Opus | pré-mortem (Gary Klein) |
+| `forge-verif` | confirme, rejette ou laisse non résolu chaque objection et preuve clé | Sonnet | |
+| `forge-qa-*` (5) | bout en bout, sécurité, données, interface, vendabilité avant la sortie | selon le rôle | verification-before-completion |
+| `forge-recherche`, `forge-innovation` | soutien, sur demande | Sonnet | |
 
-Les skills d'appui ne sont **pas** des dépendances : s'ils manquent, l'expert applique une fiche méthode intégrée et le dit. Forge te propose de les installer un à un, avec leur coût (voir `forge/skills/forge-equipe/references/skills-appui.md` pour les commandes, versions et licences vérifiées).
+Tous lisent, cherchent sur le web et ne modifient rien (`forge-qa-e2e` écrit des tests). Les skills d'appui ne sont **pas** des dépendances : s'ils manquent, l'expert applique une fiche méthode intégrée et le dit ; Forge propose de les installer un à un, avec leur coût (`forge/skills/forge-equipe/references/skills-appui.md`).
 
-### Les commandes
-- **`/forge:go`** : de l'idée au vendable, ou **reprise** d'un projet existant là où il en est. S'arrête aux moments irréversibles.
+**Le pré-mortem** (« imaginons que dans six mois c'est un échec ») lance trois chercheurs d'échec d'angles différents, consolidés par le critique en un top 5 avec le test le moins cher par cause. **L'équipe rouge** attaque le plan avant toute action tournée vers l'extérieur ; elle ne bloque jamais.
+
+## Les commandes
+- **`/forge:import`** : repère l'état d'un projet existant en lecture seule, propose un seul fichier, `.forge/etat.md`.
 - **`/forge:plan`** : cadrage avec les experts avant de coder, désaccords remontés, pré-mortem.
-- **`/forge:qa`** : validation avant le ship, avec pré-mortem et équipe rouge (elle ne bloque jamais, la règle pivot dit si elle a été faite).
-- **`/forge:import`** : repère l'état d'un projet existant en **lecture seule** (stack, avancement, décisions déjà prises, règles et hooks) et propose d'écrire un seul nouveau fichier, `.forge/etat.md`. Rien n'est réécrit.
-- **`/forge:audit`** : audit non destructif de ta config, avec le tableau des conflits (le projet gagne toujours).
-- **`/forge:doctor`** : vérifie que Forge est bien chargé et aide à dépanner.
+- **`/forge:qa`** : les agents QA dont le périmètre existe, pré-mortem et équipe rouge si la sortie est tournée vers l'extérieur, vérificateur sur les constats bloquants, rapport rouge, orange, vert.
+- **`/forge:go`** : de l'idée au vendable, ou reprise d'un projet. Liste des fonctionnalités dans `.forge/features.json`, une à la fois, chacune prouvée par son test avant d'être cochée.
+- **`/forge:audit`** : audit non destructif de ta configuration, tableau des conflits (le projet gagne toujours).
+- **`/forge:doctor`** : vérifie que Forge est chargé, aide à dépanner, propose le bloc CLAUDE.md.
+- `/forge:principes` : les principes de fonctionnement, que les skills chargent quand il faut.
+
+`import`, `qa` et `go` ne se lancent que par toi : Claude ne les déclenche pas seul.
 
 ## Windows
-Le hook de démarrage lit `forge/hooks/principes.json` avec `cat`, sans script `.sh` (la forme la plus sûre selon les tickets connus). Ce fichier est du JSON en ASCII pur, généré depuis `PRINCIPES.md` : un premier essai avec `cat` sur le fichier texte avait **abîmé les accents sous Windows PowerShell 5.1**, ce que le workflow GitHub Actions a détecté. Le workflow vérifie maintenant la commande du hook sous Git Bash, PowerShell 5.1 et PowerShell 7 ; il prouve la commande, pas Claude Code. Plusieurs problèmes de Claude Code lui-même subsistent sous Windows (nom d'utilisateur avec espace, application MSIX, onglet Chat de l'application de bureau) : `/forge:doctor` les liste.
+Forge n'a aucun script `.sh`. Le hook de démarrage lit un JSON en ASCII avec `cat` ; le hook « règle pivot » est un script `node` lancé en forme exec, donc sans shell. Les deux sont testés en CI sous Linux, macOS, Windows Git Bash, PowerShell 5.1 et PowerShell 7 ; la CI prouve les commandes, pas Claude Code lui-même. Travaille dans l'onglet **Code** de Claude Desktop, pas dans l'onglet Chat, et installe par la ligne de commande : `/forge:doctor` liste les cas connus.
 
-**Modifier les principes** : éditer `forge/PRINCIPES.md`, puis `node scripts/build-hook.mjs` (le test échoue si `principes.json` est périmé).
+## Mesurer
+- `claude plugin details forge@forge` : ce que Forge ajoute à chaque session.
+- `/skill-doctor` dans une session : ce que chaque skill coûte et s'il a servi.
+- `claude plugin eval ./forge --disallow-tools Agent --no-publish` : six cas vérifient que `forge-equipe` se charge sur une décision (prix, promesse, données) et pas sur un bug, un refactor ou une faute de frappe.
 
 ## Structure
 
 ```
 forge/
   .claude-plugin/plugin.json
-  PRINCIPES.md          # la constitution (courte), injectée à chaque session
-  hooks/hooks.json      # SessionStart -> injecte principes.json
-  hooks/principes.json  # PRINCIPES.md en JSON ASCII (généré, voir scripts/build-hook.mjs)
-  agents/               # 17 experts (6 PLANIF, 6 nouveaux, 5 QA)
-  commands/             # go, plan, qa, import, audit, doctor
-  skills/forge-equipe/  # routage, format de rendu, pré-mortem (détail chargé à la demande)
-  skills/forge-onboarding/
-tests/test-hook.mjs     # taille de PRINCIPES + commande du hook dans chaque shell
-scripts/build-hook.mjs  # génère principes.json
+  hooks/hooks.json          # SessionStart (quatre lignes) et PreToolUse (règle pivot)
+  hooks/demarrage.md        # le contexte de démarrage ; principes.json en est la forme JSON ASCII
+  hooks/garde-pivot.mjs     # la règle pivot : demande, n'interdit jamais
+  agents/                   # 18 experts, un fichier chacun
+  skills/principes/         # les principes, chargés quand il faut
+  skills/forge-equipe/      # routage, dissident, format d'avis, brief, pré-mortem, équipe rouge
+  skills/{go,plan,qa,import,audit,doctor,forge-onboarding}/
+  evals/                    # six cas de déclenchement pour claude plugin eval
+scripts/build-hook.mjs      # génère principes.json depuis demarrage.md
+tests/                      # hook de démarrage dans chaque shell, règle pivot (30 cas)
 ```
 
+**Modifier le démarrage** : éditer `forge/hooks/demarrage.md`, puis `node scripts/build-hook.mjs`. Le test échoue si `principes.json` est périmé ou si le texte dépasse 1 500 caractères.
+
+## Ce qui est vérifié, et ce qui ne l'est pas
+Vérifié le 02/11/2026 sur Claude Code 2.1.309 : le skill `forge-equipe` se charge sur une question de prix et pas sur une faute de frappe, avec ou sans hook de démarrage ; un CLAUDE.md de projet l'emporte sur le contexte d'un hook quand ils se contredisent. Non vérifié : le chargement par Claude Desktop sous Windows ; aucune étude contrôlée d'un pré-mortem mené par des agents. Les sources sont dans `forge/skills/forge-equipe/references/fiches-methode.md`.
+
 ## Philosophie
-Pas de checklist figée. Pas de stack imposée. Pas d'action à l'aveugle. Pas de flatterie. Un avis d'IA n'est pas une preuve : la preuve, c'est un comportement réel. Un collaborateur qui te dit la vérité et te rend vendable.
+Pas de liste à cocher. Pas de stack imposée. Pas d'action à l'aveugle. Pas de flatterie. Un avis de modèle n'est pas une preuve : la preuve, c'est un comportement réel. Un collaborateur qui te dit ce que les preuves disent et te laisse décider.
 
 ## Sources et licences
-Forge s'appuie, sans les recopier, sur Superpowers (MIT), marketingskills (MIT), anthropics/skills `frontend-design` (Apache 2.0) ; il s'inspire de BMAD Method (MIT, marque « BMad » réservée) sans l'installer. Méthodes : pré-mortem de Gary Klein, Jobs-to-be-Done, esprit du Mom Test, Lean Startup (paraphrasés, sources dans `references/fiches-methode.md`). Licence de Forge : MIT.
+Forge s'appuie, sans les recopier, sur Superpowers (MIT), marketingskills (MIT), `frontend-design` d'Anthropic (Apache 2.0). Méthodes : pré-mortem de Gary Klein, Jobs-to-be-Done, esprit du Mom Test, Lean Startup (paraphrasés). Licence de Forge : MIT.

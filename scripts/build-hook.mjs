@@ -1,4 +1,5 @@
-// Génère forge/hooks/principes.json à partir de PRINCIPES.md.
+// Génère forge/hooks/principes.json à partir de forge/hooks/demarrage.md (le contexte de
+// démarrage, quatre lignes). Les principes complets vivent dans le skill forge:principes.
 // Le hook SessionStart lit ce fichier : JSON en ASCII pur (accents en \uXXXX), donc
 // indépendant de l'encodage du shell (PowerShell 5.1 abîme les accents d'un `cat` UTF-8).
 // Usage : node scripts/build-hook.mjs            (écrit le fichier)
@@ -7,7 +8,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const text = readFileSync(resolve(root, 'forge/PRINCIPES.md'), 'utf8').replace(/\r\n/g, '\n');
+const text = readFileSync(resolve(root, 'forge/hooks/demarrage.md'), 'utf8').replace(/\r\n/g, '\n');
 const json = JSON.stringify({
   hookSpecificOutput: { hookEventName: 'SessionStart', additionalContext: text },
 }).replace(/[\u007f-￿]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`);

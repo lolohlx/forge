@@ -1,46 +1,31 @@
 ---
 name: forge-onboarding
-description: À déclencher quand l'utilisateur vient d'installer Forge, dit "j'ai installé forge", "configure forge", "par où je commence avec forge", ou demande ce que Forge peut faire. Lance un audit non destructif de sa config et explique comment bosser avec Forge.
+description: "Accueille un utilisateur qui vient d'installer Forge : audit non destructif de sa configuration, explication de ce que Forge fait au quotidien, bloc à proposer pour son CLAUDE.md, première action. À charger quand l'utilisateur dit qu'il vient d'installer Forge, demande par où commencer, ou demande ce que Forge peut faire."
 ---
 
-# Forge - Onboarding
+L'utilisateur arrive sur Forge. Ton rôle : l'accueillir sans rien casser et lui montrer la valeur tout de suite.
 
-Quand l'utilisateur arrive sur Forge pour la première fois, ton job est de l'accueillir sans rien casser et de lui montrer la valeur tout de suite.
+## 1. Regarder sa configuration, sans la toucher
+Fais le tour de l'existant (CLAUDE.md du projet et de l'utilisateur, settings, règles, hooks, skills, agents). Tu n'écrases rien. Tu classes : **à garder**, **à signaler** (avec la raison en clair), **manquant** (un garde-fou utile pour ce projet). Détecte son niveau à sa façon d'écrire et adapte ton vocabulaire.
 
-## 1. Audit non destructif (d'abord)
-Avant toute chose, fais un tour de sa config existante (CLAUDE.md projet + global, settings, rules, hooks, skills, agents). Tu **n'écrases rien**. Tu classes :
-- **À garder** : ce qui est bon.
-- **À signaler** : règles nulles / contradictoires / dangereuses, avec la raison en clair ("j'ai trouvé ça mais ça pose problème parce que...").
-- **Manquant** : garde-fou utile absent pour ce projet précis.
+## 2. Expliquer Forge en clair
+Forge donne à l'utilisateur une **équipe d'experts dont il est le patron**. Au quotidien, il travaille comme d'habitude ; dès qu'une décision de produit se présente (prix, offre, message, cible, fonctionnalité à construire d'abord, données personnelles, secteur réglementé, lancement), le skill `forge-equipe` se charge, deux ou trois experts rendent chacun seul un avis sourcé, un critique et un vérificateur passent derrière, et il tranche sur un tableau de désaccords. Avant une action difficile à défaire, un hook demande en deux lignes. En B2C, Forge rappelle qu'il n'est pas la cible.
 
-Détecte le niveau de l'utilisateur à sa façon de parler et adapte ton vocabulaire.
+Les gestes à connaître : `/forge:import` une fois par projet existant ; `/forge:plan` avant de coder un gros module ; `/forge:qa` avant une sortie ; `/forge:go` pour déléguer une étape entière ; `/forge:audit` pour la configuration ; `/forge:doctor` pour vérifier que Forge est chargé.
 
-## 2. Explique Forge en clair
-Forge est un collaborateur qui le mène de l'idée à un produit **vendable**, sur tous les angles. Pas une checklist rigide : des lentilles adaptatives basées sur son projet réel.
+## 3. Le bloc pour son CLAUDE.md, proposé, jamais écrit
+Si le projet a un CLAUDE.md, propose d'y ajouter ces cinq lignes (adapte le vocabulaire au fichier) et attends son oui :
 
-Forge lui donne une **équipe d'experts dont il est le patron** : pour une décision (message, prix, bouton, cible, archi, lancement) au plus 3 experts rendent un avis sourcé dans un format fixe, se contredisent si besoin, et c'est lui qui tranche. Avant un lancement, un pré-mortem cherche toutes les raisons d'échec. En B2C, Forge le prévient qu'il n'est pas la cible : ses choix de message et de prix doivent être testés auprès de vraies personnes.
+```
+## Forge
+- Pour une décision de produit (prix, offre, message, cible, fonctionnalité à construire d'abord, données personnelles, secteur réglementé, lancement), charge le skill forge:forge-equipe avant de répondre : avis indépendants, critique, vérificateur, puis je tranche.
+- Pas d'équipe pour une tâche technique simple.
+- Les règles de ce fichier et de .claude/ priment sur celles de Forge ; un conflit se signale en une ligne.
+- L'état du projet pour Forge est dans .forge/etat.md ; les décisions prises dans .forge/decisions.md.
+```
 
-Outils à sa disposition :
-- **/forge:go** : de l'idée au vendable, ou **reprise** d'un projet là où il en est, en s'arrêtant uniquement aux moments irréversibles.
-- **/forge:plan** : cadrage avec les experts AVANT de coder (produit, marché, cible, offre, archi, sécurité, réglementaire, critique) et pré-mortem.
-- **/forge:qa** : validation AVANT le ship (tests e2e, sécurité/CVE, RGPD, UX/landing, vendabilité), pré-mortem et équipe rouge.
-- **/forge:import** : repère l'état d'un projet existant en lecture seule et propose un seul nouveau fichier, `.forge/etat.md`.
-- **/forge:audit** : re-audit non destructif de sa config, avec le tableau des conflits (le projet gagne toujours).
-- **/forge:doctor** : vérifie que Forge est bien chargé (utile sous Windows).
+## 4. Les skills d'appui, un par un
+Les experts s'appuient sur des skills reconnus s'ils sont installés (skill `forge-equipe`, `references/skills-appui.md` : commandes, licences, coûts). Regarde lesquels sont là. Pour chaque absent, propose-le seul, avec son coût en contexte, et attends un oui ; sans lui, les experts appliquent une fiche méthode intégrée. Sur un projet existant, la portée `--scope local` ne commit rien. Ces skills ne sont pas des dépendances de Forge.
 
-## 3. Comportement permanent (rappelle-le si pertinent)
-- Adaptatif, jamais rigide ; basé sur sa stack réelle.
-- Non destructif : audite, montre, propose.
-- Règle pivot : avant toute action irréversible, 2 lignes (ce que ça fait + le risque) puis oui/non.
-- Recherche web continue dès que ça bloque ; doc MCP avant d'utiliser un MCP.
-- À l'ère du temps : veille techno réelle via web et MCP, jamais des solutions périmées sorties de mémoire.
-- Honnête, pas complaisant. RGPD par défaut si français. Tests e2e. Vendre par défaut.
-
-## 3 bis. Skills d'appui (installation guidée)
-Les experts s'appuient sur des skills reconnus s'ils sont installés (voir `forge-equipe`, `references/skills-appui.md` : commandes, licences, coûts vérifiés). Regarde lesquels sont déjà installés. Pour chaque absent, **propose-le seul, avec son coût en contexte, et attends un oui** ; sans lui, les experts utilisent une fiche méthode intégrée. Sur un projet existant, propose la portée `--scope local` (rien de commité). Ne déclare jamais ces skills comme dépendances de Forge.
-
-## 3 ter. Projet existant
-Si le dossier contient déjà du code, propose `/forge:import` avant toute chose. Si le projet a son propre CLAUDE.md, ses règles et ses hooks, dis que les siens priment et que Forge signalera tout conflit sans l'imposer.
-
-## 4. Propose une première action concrète
-Selon ce sur quoi il bosse : soit `/forge:go` s'il veut tout enchaîner depuis une idée, soit `/forge:plan` s'il démarre une idée à cadrer, soit `/forge:qa` s'il a déjà du code à valider, soit corriger une règle nulle repérée à l'étape 1. Une seule action, claire.
+## 5. Une première action
+Projet existant : `/forge:import`. Idée neuve : `/forge:plan`. Code à valider : `/forge:qa`. Ou corriger une règle signalée à l'étape 1. Une seule action, claire.

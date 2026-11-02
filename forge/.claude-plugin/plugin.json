@@ -1,7 +1,11 @@
 {
   "name": "forge",
-  "version": "0.2.0",
-  "description": "Collaborateur Claude Code adaptatif qui te mène de l'idée au produit vendable. Pour l'indépendant qui se lance comme pour l'expert de son métier qui construit son propre logiciel (B2B ou B2C) : une équipe d'experts sourcés dont tu restes le patron, un pré-mortem avant le lancement, reprise d'un projet existant sans rien casser.",
+  "displayName": "Forge",
+  "version": "0.3.0",
+  "description": "Une équipe d'experts pour les décisions qui font vendre : prix, promesse, cible, données, réglementaire. Avis indépendants et sourcés, un critique, un vérificateur, et c'est toi qui tranches. Pré-mortem avant un lancement, règle pivot avant toute action difficile à défaire. Les règles de ton projet priment.",
   "author": { "name": "Leo Hallak" },
-  "keywords": ["workflow", "rgpd", "security", "qa", "product", "pricing", "premortem", "b2b", "b2c", "france"]
+  "homepage": "https://github.com/lolohlx/forge",
+  "repository": "https://github.com/lolohlx/forge",
+  "license": "MIT",
+  "keywords": ["workflow", "product", "pricing", "premortem", "rgpd", "security", "qa", "b2b", "b2c", "france"]
 }

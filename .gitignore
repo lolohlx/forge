@@ -16,3 +16,6 @@ tmp/
 .env
 .env.*
 !.env.example
+
+# Résultats locaux des evals (claude plugin eval)
+forge/evals/results/
